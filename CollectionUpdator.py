@@ -1,11 +1,10 @@
 from pymongo import MongoClient
 
-from DatabaseUpdator import write_num_of_occurrences_of_each_unique_token_in_whole_db_to_token_collection, \
+from MyCollection_tokenFrequencies_Updator import write_token_frequencies_of_each_video_to_my_collection
+from TokenCollectionUpdator import write_num_of_occurrences_of_each_unique_token_in_whole_db_to_token_collection, \
     write_num_of_occurrences_of_each_token_in_a_single_video_to_my_collection, \
     write_probability_of_a_token_being_included_in_particular_video_tutorial_to_token_collection, \
     write_entropy_of_a_token_being_included_in_particular_video_tutorial_to_token_collection
-
-print("*********Python Script call is a success!****************")
 
 
 def main():
@@ -14,6 +13,8 @@ def main():
     collection = db.MyCollection
     token_collection = db.TokenCollection
     results = list(collection.find({}, {"errorPronePercentage": 0, "tokenFrequencies": 0}))
+
+    write_token_frequencies_of_each_video_to_my_collection(results, collection)
 
     write_num_of_occurrences_of_each_unique_token_in_whole_db_to_token_collection(results, token_collection)
 
