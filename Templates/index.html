@@ -181,12 +181,12 @@ table tr:nth-child(2n+1) {
          <th>Title</th>
          <th>Duration</th>
          <th>Error-prone % </th>
-         <th></th>
+         <th>Link</th>
       </tr>
 {% for item in result %}
       <tr>
-         <td><img src="https://i.picsum.photos/id/1005/100/100.jpg" alt="" /></td>
-         <td>Jane Doe</td>
+         <td>{{item['title']}}</td>
+         <td>{{item['duration']}}secs</td>
          <td>{{item['errorPronePercentage'] *100}}%</td>
          <td><a href="./player.html">View</a></td>
       </tr>

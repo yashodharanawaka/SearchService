@@ -76,7 +76,6 @@ def retrieve_token_list():
                                                  {'_id': 0,
                                                   'tokenFrequencies': 0,
                                                   'tokens': 0}).sort('errorPronePercentage', 1))
-
         i = 0
         while len(query_result) < 10:
             query_result.append(query_result2[i])
